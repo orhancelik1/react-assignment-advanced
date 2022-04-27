@@ -7,24 +7,24 @@ body {
 
 .container {
   margin: 20px;
-  min-width: 100vw;
+  min-width: 95vw;
 
 }
 .column {
   float: left;
-  width: 25%;
   padding: 0 10px;
 }
-@media screen and (min-width: 100px) {
+@media only screen and (max-width: 600px) {
   .column {
     width: 100%;
   }
 }
-@media screen and (min-width: 600px) {
+@media only screen and (min-width: 600px) {
   .column {
     width: 50%;
   }
 }
+
 @media screen and (min-width: 900px) {
   .column {
     width: 33%;
