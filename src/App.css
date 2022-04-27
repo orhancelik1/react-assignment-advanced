@@ -6,9 +6,10 @@ body {
 }
 
 .container {
-  margin: 0 -5px;
-}
+  margin: 20px;
+  min-width: 100vw;
 
+}
 .column {
   float: left;
   width: 25%;
