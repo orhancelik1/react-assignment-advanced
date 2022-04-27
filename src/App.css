@@ -15,6 +15,27 @@ body {
   width: 25%;
   padding: 0 10px;
 }
+@media screen and (min-width: 100px) {
+  .column {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .column {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .column {
+    width: 33%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .column {
+    width: 25%;
+  }
+}
+
 .overflow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
   padding: 16px;
@@ -34,5 +55,39 @@ body {
   font-size: 1rem;
 }
 .body-info p {
-  margin: 0;
+  margin: 5px;
+}
+
+/*navbar*/
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.navbar ul{
+  display: flex;
+}
+
+ion-icon{
+  margin-right: 7px;
+  font-size: 1.3rem;
+}
+ul {
+    list-style-type: none;
+}
+button{
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.trash, .pencil{
+  color: grey;
+}
+.like{
+  color: red;
+  fill: red;
+}
+.pencil:hover,.trash:hover{
+  color: rgb(25, 123, 204);
 }

@@ -1,6 +1,7 @@
 import React from "react";
+import Navbar from "./Navbar";
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user,handleDelete }) => {
   return (
     <div class="container">
       <div className="column">
@@ -14,10 +15,20 @@ const UserCard = ({ user }) => {
 
         <div class="body-info">
           <h1>{user.name}</h1>
-          <p>{user.email}</p>
-          <p>{user.phone}</p>
-          <p>{user.website}</p>
+          <p>
+            <ion-icon name="mail-outline"></ion-icon>
+            {user.email}
+          </p>
+          <p>
+            <ion-icon name="call-outline"></ion-icon>
+            {user.phone}
+          </p>
+          <p>
+            <ion-icon name="globe-outline"></ion-icon>
+            {user.website}
+          </p>
         </div>
+        <Navbar id={user.id} handleDelete={handleDelete}/>
       </div>
     </div>
   );

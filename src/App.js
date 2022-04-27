@@ -7,6 +7,10 @@ class App extends Component {
     users: [],
   };
 
+handleDelete = (id) => {
+  const newList = this.state.users.filter(item => item.id !== id)
+  this.setState({ users: newList });
+}
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
@@ -16,7 +20,7 @@ class App extends Component {
       .catch(console.log);
   }
   render() {
-    return <Users users={this.state.users} />;
+    return <Users users={this.state.users} handleDelete={this.handleDelete} />;
   }
 }
 
