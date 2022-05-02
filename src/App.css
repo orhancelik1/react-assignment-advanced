@@ -113,7 +113,7 @@ ion-icon {
 }
 
 .input-label {
-  margin-top: 9px;
+  margin-top: 0;
   display: flex;
   width: 70px;
   margin-right: 13px;
@@ -136,8 +136,10 @@ button {
 }
 .like {
   color: red;
-  fill: red;
   cursor: pointer;
+}
+.like:hover{
+  color: rgb(234, 0, 255);
 }
 .pencil:hover,
 .trash:hover {

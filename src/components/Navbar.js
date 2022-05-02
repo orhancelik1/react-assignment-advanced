@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navbar = (props) => {
-  const [isLike, setIsLike] = React.useState(true);
+  const [isLike, setIsLike] = React.useState(false);
 
   function toggleLike() {
     setIsLike((prev) => !prev);
@@ -14,11 +14,11 @@ const Navbar = (props) => {
           <button onClick={toggleLike}>
             {isLike ? (
               <span className="like">
-                <ion-icon name="heart-outline"></ion-icon>
+                <ion-icon name="heart"></ion-icon>
               </span>
             ) : (
               <span className="like">
-                <ion-icon name="heart"></ion-icon>
+                <ion-icon name="heart-outline"></ion-icon>
               </span>
             )}
           </button>

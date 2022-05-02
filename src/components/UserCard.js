@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import { padding } from "@mui/system";
 
 const fields = ["name", "email", "phone", "website"];
 
@@ -72,13 +73,17 @@ const UserCard = ({ user, handleDelete, editUser, index }) => {
               <div className="input-container">
                 <div className="input-label">{i}</div>
                 <TextField
+                  style={{
+                    margin:"-10px",
+                  }}
+                  margin="none"
                   fullWidth
                   onChange={(event) => onChangeField(i, event.target.value)}
                   size="small"
                   error={error}
                   id="outlined-error-helper-text"
                   defaultValue={user[i]}
-                  helperText={error && "This field is required"}
+                  helperText={error ? "This field is required" : " "}
                 />
               </div>
             );
@@ -86,8 +91,12 @@ const UserCard = ({ user, handleDelete, editUser, index }) => {
         </DialogContent>
 
         <DialogActions>
-          <Button variant="outlined" onClick={closeModal}>Cancel</Button>
-          <Button variant="contained" onClick={saveUser}>Save</Button>
+          <Button variant="outlined" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button variant="contained" onClick={saveUser}>
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
