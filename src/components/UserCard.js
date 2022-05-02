@@ -6,7 +6,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
-
 const fields = ["name", "email", "phone", "website"];
 
 const UserCard = ({ user, handleDelete, editUser, index }) => {
@@ -66,7 +65,7 @@ const UserCard = ({ user, handleDelete, editUser, index }) => {
       </div>
 
       <Dialog fullWidth open={open} onClose={closeModal}>
-        <DialogContent >
+        <DialogContent>
           {fields.map((i) => {
             const error = !user[i] || !data[i]?.length;
             return (
@@ -87,8 +86,8 @@ const UserCard = ({ user, handleDelete, editUser, index }) => {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={closeModal}>Cancel</Button>
-          <Button onClick={saveUser}>Save</Button>
+          <Button variant="outlined" onClick={closeModal}>Cancel</Button>
+          <Button variant="contained" onClick={saveUser}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>
