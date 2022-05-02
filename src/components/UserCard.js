@@ -1,7 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
 
-const UserCard = ({ user,handleDelete }) => {
+
+const fields = ["name", "email", "phone", "website"];
+
+const UserCard = ({ user, handleDelete, editUser, index }) => {
+  const [open, setOpen] = React.useState(false);
+  const [data, setData] = useState(user);
+
+  const onChangeField = (field, value) => {
+    setData((state) => ({
+      ...state,
+      [field]: value,
+    }));
+  };
+
+  const saveUser = () => {
+    editUser({ user: data, index, callback: closeModal });
+  };
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div class="container">
       <div className="column">
@@ -28,8 +58,39 @@ const UserCard = ({ user,handleDelete }) => {
             {user.website}
           </p>
         </div>
-        <Navbar id={user.id} handleDelete={handleDelete}/>
+        <Navbar
+          openModal={openModal}
+          id={user.id}
+          handleDelete={handleDelete}
+        />
       </div>
+
+      <Dialog fullWidth open={open} onClose={closeModal}>
+        <DialogContent >
+          {fields.map((i) => {
+            const error = !user[i] || !data[i]?.length;
+            return (
+              <div className="input-container">
+                <div className="input-label">{i}</div>
+                <TextField
+                  fullWidth
+                  onChange={(event) => onChangeField(i, event.target.value)}
+                  size="small"
+                  error={error}
+                  id="outlined-error-helper-text"
+                  defaultValue={user[i]}
+                  helperText={error && "This field is required"}
+                />
+              </div>
+            );
+          })}
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={closeModal}>Cancel</Button>
+          <Button onClick={saveUser}>Save</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

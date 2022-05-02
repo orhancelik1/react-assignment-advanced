@@ -6,7 +6,7 @@ const Navbar = (props) => {
   function toggleLike() {
     setIsLike((prev) => !prev);
   }
-  
+
   return (
     <div className="navbar">
       <ul>
@@ -24,7 +24,7 @@ const Navbar = (props) => {
           </button>
         </li>
         <li className="list">
-          <button>
+          <button onClick={props.openModal}>
             <span className="pencil">
               <ion-icon name="pencil-outline"></ion-icon>
             </span>

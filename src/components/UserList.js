@@ -1,15 +1,11 @@
 import React from "react";
 import UserCard from "./UserCard";
 
-const Users = ({ users,handleDelete}) => {
+const Users = ({ users, ...props }) => {
   return (
     <div>
-      {users.map((userr) => (
-        <UserCard
-          key={userr.id}
-          user={userr}
-          handleDelete={handleDelete}
-        />
+      {users.map((userr, index) => (
+        <UserCard key={userr.id} user={userr} index={index} {...props} />
       ))}
     </div>
   );
